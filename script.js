@@ -378,7 +378,7 @@ function hideSlotPopup() {
 
 // Timer
 // Timer
-let totalSeconds = 10 ;
+let totalSeconds = 60 *  60 ;
 let remainingSeconds = totalSeconds;
 let countdownInterval = null;
 let isPaused = true;
