@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Studeer screen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-controls">
+    <div class="menu-wrapper">
+      <div class="menu-toggle" onclick="toggleMenu()">☰ Menu</div>
+
+      <!-- Zijmenu -->
+      <div class="side-menu" id="sideMenu">
+        <label><input type="checkbox" checked onchange="toggleVisibility('quoteBox')"> Toon quotes</label>
+        <label><input type="checkbox" checked onchange="toggleVisibility('datetime')"> Toon klok</label>
+        <label><input type="checkbox" onchange="toggleVisibility('spotifyWidget')"> Toon Spotify</label>
+        <label><input type="checkbox" onchange="toggleVisibility('stickyNote')"> Toon plaknotitie</label>
+        <label><input type="checkbox" onchange="toggleVisibility('todoList')"> Toon To-Do lijst</label>
+        <label><input type="checkbox" onchange="toggleVisibility('streakShield')" onchange="toggleVisibility('streak-label')"> Toon studeer streak</label>
+        <label><button onclick="changeBackground()">Verander achtergrond</button></label>
+      </div>
+    </div>
+
+    <div class="mystery-counter">🪙 <span id="coinCount">0</span></div>
+    <button class="mystery-button"  id="mysteryBtn" onclick="showSlotPopup()">🎁 Mystery</button>
+
+
+    
+    <div id="countdownContainer">
+      <div id="countdown">60:00</div>
+      <div class="countdown-buttons">
+        <button id="pauseBtn" class="regel" onclick="pauseTimer()">⏸️</button>
+        <button id="playBtn" class="regel" onclick="startOrResumeCountdown()">▶️</button>
+      </div>
+    </div>
+
+    
+
+  </div>
+  <div class="streak-counter">
+    <div class="streak-shield" id="streakShield">0</div>
+    <div class="streak-label">Totaal aantal uren</div>
+  </div>
+
+  <!-- Popup -->
+  <div id="mysteryPopup" class="mystery-popup">
+    <div class="popup-content">
+      <h2>🎉 Je hebt 3 Mystery Coins verdiend!</h2>
+      <button onclick="hideMysteryPopup()">Sluiten</button>
+    </div>
+  </div>
+
+  <!-- Slotmachine Popup -->
+  <div id="slotPopup" class="slot-popup" style="display: none;">
+    <div class="popup-content">
+      
+      <span class="close-slot" onclick="hideSlotPopup()">✖</span>
+      <h2>🎰 Draai maar, veel geluk!!!</h2>
+      <div class="slots" style="display: flex; justify-content: center; gap: 10px; font-size: 48px;">
+        <div class="reel"></div>
+        <div class="reel"></div>
+        <div class="reel"></div>
+      </div>
+      <button id="startSlot" onclick="startSlot()">Start</button>
+    </div>
+  </div>
+
+
+
+
+<!-- To-Do Lijst -->
+<div id="todoList" class="todo-list" style="display: none;">
+  <h3>📝 Studie To-Do Lijst</h3>
+  <div class="todo-input">
+      <input type="text" id="todoInput" placeholder="Voeg nieuwe taak toe...">
+      <button onclick="addTodo()">➕</button>
+  </div>
+  <ul id="todoItems"></ul>
+</div>
+
+  <!-- Achtergrond -->
+  <div class="background-image"></div>
+
+  <!-- Quotes -->
+  <div class="quote-box" id="quoteBox">
+    <p class="quote-text" id="quoteText"></p>
+    <p class="quote-author" id="quoteAuthor"></p>
+  </div>
+
+  <!-- Klok -->
+  <div id="datetime">
+    <div id="time"></div>
+    <div id="date"></div>
+  </div>
+
+  <!-- Spotify -->
+  <div id="spotifyWidget" class="spotify-widget">
+    <iframe style="border-radius:12px" 
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" 
+      width="100%" 
+      height="152" 
+      frameborder="0" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <!-- Sticky Note -->
+  <div id="stickyNote" class="sticky-note">
+    <textarea id="stickyContent" placeholder="Typ hier je notitie..." spellcheck="true"></textarea>
+    <button class="clear-note" onclick="clearStickyNote()">Clear</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+
+
+
+</body>
+</html>
